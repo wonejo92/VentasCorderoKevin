@@ -1,18 +1,28 @@
 import { Component } from '@angular/core';
+
+import { CallNumber } from '@ionic-native/call-number/ngx';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent  {
+  productos:any;
+
   public appPages = [
-    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
+    { title: 'Carrito', url: 'carrito', icon: 'cart' },
+    { title: 'Home', url: 'home', icon: 'grid' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+
+
+  constructor(private callNumber: CallNumber) {}
+
+  llamar(){
+    console.log("Se procede a llamar CAll Center")
+    this.callNumber.callNumber("0991269100", true)
+  .then(res => console.log('Launched dialer!', res))
+  .catch(err => console.log('Error launching dialer', err));
+    
+  }
 }

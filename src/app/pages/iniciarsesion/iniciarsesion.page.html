@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>iniciarsesion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Correo</ion-label>
+    <ion-input [(ngModel)]="persona.correo"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>contrasena</ion-label>
+    <ion-input [(ngModel)]="persona.password"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="login()">Iniciar sesion</ion-button>
+  <ion-button (click)="registrase()">Registrase</ion-button>
+  <ion-button color="danger" (click)="loginWithGoogle()">
+    <ion-icon name="logo-google"></ion-icon>
+  </ion-button>
+
+</ion-content>

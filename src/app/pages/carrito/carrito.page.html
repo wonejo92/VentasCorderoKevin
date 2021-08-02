@@ -1,9 +1,28 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>carrito</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Carrito</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
+<ion-content>
+
+  <ion-list >
+    <ion-item  *ngFor="let c of productos">
+      <ion-card color="light">
+        <ion-card-header>
+          <ion-card-title>{{c.Nombre}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <h1>{{c.precio}}</h1>
+          <img (click)="detalleP(c)" src="{{c.imagen}}"width="50%" height="50%" style="margin-left: 37%;" >
+        </ion-card-content>
+        <ion-button  (click)="eliminarProducto(c)"color="warning" expand="block">Eliminar Producto</ion-button>
+      </ion-card>
+    </ion-item>
+
+  </ion-list>
 
 </ion-content>
